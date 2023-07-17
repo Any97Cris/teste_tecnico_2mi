@@ -123,5 +123,6 @@ http://127.0.0.1:8000/api/cron
 <p>6 - Criei o Controller ProductController</p>
 <p>7 - Fiz as funcionalidades básicas da API<p>
 <p>8 - Tentei usar o SDK openfoodfacts/openfoodfacts-laravel, mas não tive sucesso<p>
-<p>9 - Resolvi comunicar direto com a API(https://world.openfoodfacts.org/api/v2/)<p>
-<p>10 - Criei uma rota para executar a CRON,importa os dados do banco open food facst</p>
+<p>9 - Resolvi comunicar direto com a API(https://world.openfoodfacts.org/api/v2/), usando o Guzzle<p>
+<p>10 - Precisei verificar como fazer a filtragem dos campos na documentação do open food facts</p>
+<p>11 - Criei uma rota para executar a CRON,importa os dados do banco open food facst</p>
