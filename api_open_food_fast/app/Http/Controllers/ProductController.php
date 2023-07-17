@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreUpdateProductFormRequest;
+use Attribute;
+use OpenFoodFacts\Laravel\Facades\OpenFoodFacts;
+use GuzzleHttp\Client;
+
 
 class ProductController extends Controller
 {
@@ -14,7 +19,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return 'Rota Index';
+        $data = Product::all();
+        return response()->json($data);
     }
 
     /**
@@ -23,9 +29,13 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUpdateProductFormRequest $request)
     {
-        return 'Rota store';
+        $product = Product::create($request->all());
+        return response()->json([
+            'message' => 'Sucesso ao Cadastrar' 
+        ],201);
+        
     }
 
     /**
@@ -36,7 +46,12 @@ class ProductController extends Controller
      */
     public function show($product)
     {
-        return 'Rota show';
+        if(!$id = Product::find($product)){
+            return response()->json(['message' => 'Not Found'], 404);
+        } 
+
+        return $id;
+
     }
 
 
@@ -47,9 +62,15 @@ class ProductController extends Controller
      * @param  \App\Models\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $product)
+    public function update(StoreUpdateProductFormRequest $request, $product)
     {
-        return 'Rota update';
+
+        if(!$id = Product::find($product)){
+            return response()->json(['message' => 'Not Found'], 404);
+        }        
+
+        $id->update($request->all());
+        return response()->json($id);
     }
 
     /**
@@ -60,6 +81,33 @@ class ProductController extends Controller
      */
     public function destroy($product)
     {
-        return 'Rota destroy';
+        if(!$id = Product::find($product)){
+            return response()->json(['message' => 'Not Found'], 404);
+        } 
+
+        $id->destroy($product);
+        return response()->json([
+            'message' => 'Delete Realizado com Sucesso'
+        ]);
+    }
+
+    public function cron(){        
+
+        $client = new Client();
+
+        $response = $client->request('GET', 'https://world.openfoodfacts.org/api/v2/search?fields=code,product_name,url,creator,created_t,last_modified_t,product_name,quantity,brands,categories,labels,cities,purchase_places,stores,ingredients_text,traces,serving_size,serving_quantity,nutriscore_score,nutriscore_grade,main_category,image_url&page_count=100&page_size=100');
+
+        $body = $response->getBody();
+
+        $api = json_decode($body);
+
+        foreach($api->products as $product){
+            Product::create((array)$product);
+        }
+
+        return response()->json([
+            'message' => 'Cadastrado com Sucesso'
+        ],201);
+
     }
 }
