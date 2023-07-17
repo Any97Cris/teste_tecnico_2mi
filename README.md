@@ -1,5 +1,8 @@
-<h2>API Rest que Consome Banco Open Food Fast</h2>
+<h1>Backend Challenge 20230105</h1>
 
+<hr>
+
+<h2>API Rest que Consome Banco Open Food Facts</h2>
 
 <h3>Tecnologias Usadas</h3>
 <ul>
@@ -7,12 +10,12 @@
     <li>Laravel</li>
     <li>MySQL</li>
     <li>ORM: Eloquent</li>
-    <li>Guzzle: Realiza a solicitação HTTP com API Open Food Fast</li>
+    <li>Guzzle: Realiza a solicitação HTTP com API Open Food Facts</li>
 </ul>
 
 ### API esta na pasta api_open_food_fast:
 
-<p>teste_tecnico_2mi/api_open_food_fast_api</p>
+<p>teste_tecnico_2mi/api_open_food_fast</p>
 
 ### Passos para rodar a API:
 
@@ -96,7 +99,7 @@ http://127.0.0.1:8000/api/products/{$code}
 http://127.0.0.1:8000/api/products/{$code}
 ```
 
-<p style="font-size:12px">Acessar Rota CRON - Para import dados do banco Open Food Fast</p>
+<p style="font-size:12px">Acessar Rota CRON - Para import dados do banco Open Food Facts</p>
 
 ```
 http://127.0.0.1:8000/api/cron
@@ -110,3 +113,15 @@ http://127.0.0.1:8000/api/cron
 0 0 * * * curl -s http://localhost:8000/api/cron
 ```
 
+<h3>Processo de investigação para o desenvolvimento da atividade </h3>
+
+<p>1 - Usei o framework Laravel<p>
+<p>2 - Fiz a migration, tabela products com base no arquivo products.json</p>
+<p>3 - Criei os campos personalizados status(enum['draft', 'trash', 'published']) e imported_t( Date com a dia e hora que foi importado)</p>
+<p>4 - Criei o Model Product</p>
+<p>5 - Criei o Controller ProductController</p>
+<p>6 - Criei o Controller ProductController</p>
+<p>7 - Fiz as funcionalidades básicas da API<p>
+<p>8 - Tentei usar o SDK openfoodfacts/openfoodfacts-laravel, mas não tive sucesso<p>
+<p>9 - Resolvi comunicar direto com a API(https://world.openfoodfacts.org/api/v2/)<p>
+<p>10 - Criei uma rota para executar a CRON,importa os dados do banco open food facst</p>
