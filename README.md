@@ -10,6 +10,9 @@
     <li>Guzzle: Realiza a solicitação HTTP com API Open Food Fast</li>
 </ul>
 
+### API esta na pasta api_open_food_fast:
+
+<p>teste_open_food_fast/api_open_food_fast_api</p>
 
 ### Passos para rodar a API:
 
@@ -34,10 +37,10 @@ php artisan migrate
 http://127.0.0.1:8000/api/products/
 ```
 
-<p style="font-size:12px">Filtro por ID</p>
+<p style="font-size:12px">Filtro por Code</p>
 
 ```
-http://127.0.0.1:8000/api/products/{$id}
+http://127.0.0.1:8000/api/products/{$code}
 ```
 
 <p style="font-size:12px">Cadastrar</p>
@@ -76,7 +79,7 @@ http://127.0.0.1:8000/api/products/
 <p style="font-size:12px">Atualizar</p>
 
 ```
-http://127.0.0.1:8000/api/products/{$id}
+http://127.0.0.1:8000/api/products/{$code}
 ```
 
 <p style="font-size:12px">Campos e dados para atualizar em JSON</p>
@@ -90,7 +93,7 @@ http://127.0.0.1:8000/api/products/{$id}
 <p style="font-size:12px">Delete</p>
 
 ```
-http://127.0.0.1:8000/api/products/{$id}
+http://127.0.0.1:8000/api/products/{$code}
 ```
 
 <p style="font-size:12px">Acessar Rota CRON - Para import dados do banco Open Food Fast</p>
