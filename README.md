@@ -101,3 +101,12 @@ http://127.0.0.1:8000/api/products/{$code}
 ```
 http://127.0.0.1:8000/api/cron
 ```
+
+<h3>Configurar CRON</h3>
+
+<p>Coloque o seguinte comando para CRON</p>
+
+```
+0 0 * * * curl -s http://localhost:8000/api/cron
+```
+
