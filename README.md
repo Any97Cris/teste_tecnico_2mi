@@ -45,6 +45,7 @@ http://127.0.0.1:8000/api/products/{$id}
 http://127.0.0.1:8000/api/products/
 ```
 <p style="font-size:12px">Campos e dados para cadastrados em JSON</p>
+
 ```
 {
     "url" : "algumlugar",
@@ -68,6 +69,7 @@ http://127.0.0.1:8000/api/products/
 	"main_category" : "algo",
 	"image_url" : "siteextenso"
 }
+
 ```
 
 <p style="font-size:12px">Atualizar</p>
