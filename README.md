@@ -12,7 +12,7 @@
 
 ### API esta na pasta api_open_food_fast:
 
-<p>teste_open_food_fast/api_open_food_fast_api</p>
+<p>teste_tecnico_2mi/api_open_food_fast_api</p>
 
 ### Passos para rodar a API:
 
