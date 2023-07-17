@@ -7,6 +7,7 @@
     <li>Laravel</li>
     <li>MySQL</li>
     <li>ORM: Eloquent</li>
+    <li>Guzzle: Realiza a solicitação HTTP com API Open Food Fast</li>
 </ul>
 
 
