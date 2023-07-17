@@ -1,14 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Product;
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreUpdateProductFormRequest;
-use Attribute;
-use OpenFoodFacts\Laravel\Facades\OpenFoodFacts;
 use GuzzleHttp\Client;
-
 
 class ProductController extends Controller
 {
